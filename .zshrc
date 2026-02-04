@@ -149,10 +149,10 @@ zinit light zsh-users/zsh-completions
 zinit light agkozak/zsh-z
 ZSHZ_DATA="$XDG_DATA_HOME/z/.z"
 
-# Git status in prompt (if using pure prompt)
-zinit light sindresorhus/pure
-PURE_PROMPT_SYMBOL="❯"
-PURE_PROMPT_VICMD_SYMBOL="❮"
+# Powerlevel10k prompt (run `p10k configure` to customize)
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 
 # ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -166,13 +166,23 @@ alias ....="cd ../../.."
 alias ~="cd ~"
 alias -- -="cd -"                # Go to previous directory
 
-# ─── List Files ───────────────────────────────────────────────────────────────
-alias ls="ls -G"                 # Colorized output
-alias ll="ls -lAh"               # Long format, all files
-alias la="ls -A"                 # All files
-alias l="ls -CF"                 # Columns with indicators
-alias lt="ls -lAht"              # Sort by time
-alias lz="ls -lAhS"              # Sort by size
+# ─── List Files (eza with icons, fallback to ls) ────────────────────────────
+if command -v eza &>/dev/null; then
+    alias ls="eza --icons"
+    alias ll="eza -la --icons --git"
+    alias la="eza -a --icons"
+    alias l="eza --icons"
+    alias lt="eza -la --icons --sort=modified"
+    alias lz="eza -la --icons --sort=size"
+    alias tree="eza --tree --icons"
+else
+    alias ls="ls -G"
+    alias ll="ls -lAh"
+    alias la="ls -A"
+    alias l="ls -CF"
+    alias lt="ls -lAht"
+    alias lz="ls -lAhS"
+fi
 
 # ─── Safety Nets ──────────────────────────────────────────────────────────────
 alias rm="rm -i"                 # Confirm before removing
@@ -215,6 +225,10 @@ alias ports="lsof -i -P -n | grep LISTEN"  # Show open ports
 alias py="python3"
 alias pip="pip3"
 alias serve="python3 -m http.server"  # Quick HTTP server
+
+# ─── Modern CLI Tools ────────────────────────────────────────────────────────
+command -v bat &>/dev/null && alias cat="bat --style=auto"
+command -v fastfetch &>/dev/null && alias fetch="fastfetch"
 
 
 # ┌──────────────────────────────────────────────────────────────────────────────┐
@@ -319,8 +333,12 @@ typeset -U PATH path
 # Disable ctrl+s freezing terminal
 stty -ixon
 
-# Welcome message (comment out if you prefer silence)
-print -P "%F{cyan}Welcome back, %n%f"
+# Welcome message (fastfetch if available, otherwise simple greeting)
+if command -v fastfetch &>/dev/null; then
+    fastfetch
+else
+    print -P "%F{cyan}Welcome back, %n%f"
+fi
 
 
 # ╔══════════════════════════════════════════════════════════════════════════════╗
