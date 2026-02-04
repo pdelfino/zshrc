@@ -1,0 +1,5 @@
+# Secrets - never commit actual values
+.secure_env_vars
+
+# macOS
+.DS_Store

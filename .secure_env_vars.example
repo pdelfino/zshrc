@@ -1,0 +1,27 @@
+export TFR_RELEASE="prod-instance"
+export TFR_DEV="prod-instance"
+
+export LEIN_USERNAME="username_placeholder"
+export LEIN_PASSWORD="password_placeholder"
+export LEIN_SNAPSHOTS_IN_RELEASE=true
+
+export API_TALLYFOR_VERSION=""
+
+export TALLYFOR_DUDE_27_API_KEY="api_key_placeholder_1"
+export TALLYFOR_AMAN_29_API_KEY="api_key_placeholder_2"
+export TALLYFOR_CONNERY_API_KEY="api_key_placeholder_3"
+export SKCPAS_prod_red_API_KEY="api_key_placeholder_4"
+export TALLYFOR_PEDRO_prod_red_API_KEY="api_key_placeholder_5"
+export COLLECTIVE_prod_red_API_KEY="api_key_placeholder_6"
+
+export TALLYFOR_API_URL_27="https://tallyfor-backend-prod-instance.herokuapp.com/api/clients"
+export TALLYFOR_API_URL_29="https://tallyfor-backend-prod-instance.herokuapp.com/api/clients"
+export TALLYFOR_API_URL_PROD_RED="https://tallyfor-backend-api-prod-red-placeholder.herokuapp.com/api/clients"
+
+export CHARGEBEE_API_TEST="chargebee_test_key_placeholder"
+# export CHARGEBEE_API=live...
+
+export OPENAI_API_KEY="openai_key_placeholder"
+
+export CLIENT_UUID_UNDER_TESTING="client_uuid_placeholder"
+export ATB_UUID_UNDER_TESTING="uuid_placeholder"
