@@ -108,7 +108,7 @@ c (clear)    h (history)    path    reload    zshrc
 
 1. **Clone the repository:**
    ```bash
-   git clone git@github.com:YOUR_USERNAME/zshrc.git ~/projects/zshrc
+   git clone git@github.com:pdelfino/zshrc.git ~/projects/zshrc
    ```
 
 2. **Symlink the configuration:**
@@ -151,6 +151,10 @@ Edit `~/.zshrc` or the symlinked file directly. After making changes:
 ```bash
 reload  # or: source ~/.zshrc
 ```
+
+## Related
+
+- [claude-config](https://github.com/pdelfino/claude-config) - Claude Code configuration with Emacs-style keybindings
 
 ## License
 
