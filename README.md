@@ -34,9 +34,11 @@ Full Emacs-style navigation and editing:
 | `Ctrl+A/E` | Beginning/end of line |
 | `Ctrl+F/B` | Forward/backward char |
 | `Alt+F/B` | Forward/backward word |
-| `Ctrl+K/U` | Kill to end/start of line |
-| `Ctrl+W` | Kill word/region |
-| `Ctrl+Y` | Yank (paste) |
+| `Ctrl+K/U` | Kill to end/start of line (syncs to system clipboard) |
+| `Ctrl+W` | Kill word/region (syncs to system clipboard) |
+| `Alt+D` | Kill word after cursor (syncs to system clipboard) |
+| `Alt+W` | Copy region (syncs to system clipboard) |
+| `Ctrl+Y` | Yank from system clipboard |
 | `Ctrl+R` | Reverse history search |
 | `Ctrl+Space` | Set mark |
 | `Ctrl+X h` | Select entire line |
@@ -49,7 +51,7 @@ Zinit auto-installs on first run. Included plugins:
 - **zsh-history-substring-search** - Better history search with arrow keys
 - **zsh-completions** - Additional completion definitions
 - **zsh-z** - Fast directory jumping (`z` command)
-- **pure** - Minimal, fast prompt with git status
+- **Powerlevel10k** - Feature-rich prompt with git status
 
 ### Aliases
 
@@ -152,9 +154,21 @@ Edit `~/.zshrc` or the symlinked file directly. After making changes:
 reload  # or: source ~/.zshrc
 ```
 
+### System Clipboard Integration
+
+All kill/copy operations (`Ctrl+K`, `Ctrl+U`, `Ctrl+W`, `Alt+D`, `Alt+W`) automatically sync to the macOS system clipboard via `pbcopy`. `Ctrl+Y` yanks from the system clipboard via `pbpaste`. This means:
+
+- Kill text in one terminal tab, yank it in another
+- Kill in the terminal, `Cmd+V` in any app
+- Copy in any app, `Ctrl+Y` in the terminal
+
+Pairs well with iTerm2's "Copy to pasteboard on selection" for a fully keyboard-driven workflow.
+
 ## Related
 
 - [claude-config](https://github.com/pdelfino/claude-config) - Claude Code configuration with Emacs-style keybindings
+- [iTerm2-config](https://github.com/pdelfino/iTerm2-config) - iTerm2 profile with copy-on-selection
+- [my-karabiner-elements-config](https://github.com/pdelfino/my-karabiner-elements-config) - Keyboard remappings
 
 ## License
 
