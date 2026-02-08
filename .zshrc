@@ -89,14 +89,33 @@ bindkey '^B' backward-char       # Ctrl+B: Back one char
 bindkey '^[f' forward-word       # Alt+F:  Forward one word
 bindkey '^[b' backward-word      # Alt+B:  Back one word
 
+# Sync kill ring to system clipboard (pbcopy)
+function _sync-cutbuffer-to-clipboard {
+    [[ -n "$CUTBUFFER" ]] && print -rn -- "$CUTBUFFER" | pbcopy
+}
+function kill-line-to-clipboard           { zle kill-line;           _sync-cutbuffer-to-clipboard }
+function backward-kill-line-to-clipboard  { zle backward-kill-line;  _sync-cutbuffer-to-clipboard }
+function kill-region-to-clipboard         { zle kill-region;         _sync-cutbuffer-to-clipboard }
+function backward-kill-word-to-clipboard  { zle backward-kill-word;  _sync-cutbuffer-to-clipboard }
+function kill-word-to-clipboard           { zle kill-word;           _sync-cutbuffer-to-clipboard }
+function copy-region-as-kill-to-clipboard { zle copy-region-as-kill; _sync-cutbuffer-to-clipboard }
+function yank-from-clipboard { CUTBUFFER=$(pbpaste); zle yank }
+zle -N yank-from-clipboard
+zle -N kill-line-to-clipboard
+zle -N backward-kill-line-to-clipboard
+zle -N kill-region-to-clipboard
+zle -N backward-kill-word-to-clipboard
+zle -N kill-word-to-clipboard
+zle -N copy-region-as-kill-to-clipboard
+
 # Editing
 bindkey '^D' delete-char         # Ctrl+D: Delete char under cursor
 bindkey '^H' backward-delete-char # Ctrl+H: Delete char before cursor
-bindkey '^K' kill-line           # Ctrl+K: Kill to end of line
-bindkey '^U' backward-kill-line  # Ctrl+U: Kill to start of line
-bindkey '^W' backward-kill-word  # Ctrl+W: Kill word before cursor
-bindkey '^[d' kill-word          # Alt+D:  Kill word after cursor
-bindkey '^Y' yank                # Ctrl+Y: Yank (paste)
+bindkey '^K' kill-line-to-clipboard          # Ctrl+K: Kill to end of line
+bindkey '^U' backward-kill-line-to-clipboard # Ctrl+U: Kill to start of line
+bindkey '^W' backward-kill-word-to-clipboard # Ctrl+W: Kill word before cursor
+bindkey '^[d' kill-word-to-clipboard         # Alt+D:  Kill word after cursor
+bindkey '^Y' yank-from-clipboard # Ctrl+Y: Yank from system clipboard
 
 # History search (type partial command, then use arrows)
 bindkey '^P' up-line-or-search   # Ctrl+P: Previous in history
@@ -113,8 +132,8 @@ zle -N select-all
 bindkey '^Xh' select-all         # Ctrl+X h: Select entire line
 
 # Region operations (Emacs style)
-bindkey '^[w' copy-region-as-kill # Alt+W: Copy region
-bindkey '^W' kill-region          # Ctrl+W: Cut region
+bindkey '^[w' copy-region-as-kill-to-clipboard # Alt+W: Copy region
+bindkey '^W' kill-region-to-clipboard          # Ctrl+W: Cut region
 bindkey '^@' set-mark-command     # Ctrl+Space: Set mark
 
 
