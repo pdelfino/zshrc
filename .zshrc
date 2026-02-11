@@ -233,6 +233,9 @@ alias e="emacs"
 alias ec="emacsclient -c"        # Open in existing Emacs
 alias et="emacs -nw"             # Terminal mode
 
+# ─── Clipboard ────────────────────────────────────────────────────────────────
+copy-last-output() { eval $(fc -ln -1) 2>&1 | pbcopy }
+
 # ─── Shortcuts ────────────────────────────────────────────────────────────────
 alias c="clear"
 alias h="history"
