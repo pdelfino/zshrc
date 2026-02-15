@@ -140,6 +140,8 @@ Environment variables containing API keys and credentials are stored separately:
 
 This keeps sensitive data out of version control while providing a template for required variables.
 
+The `CLAUDE_SLACK_WEBHOOK_URL` variable is used by [claude-config](https://github.com/pdelfino/claude-config) hooks to send Slack notifications when Claude Code is waiting for input.
+
 ## Requirements
 
 - macOS (some features are macOS-specific)
