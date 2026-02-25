@@ -26,4 +26,6 @@ export OPENAI_API_KEY="openai_key_placeholder"
 export CLIENT_UUID_UNDER_TESTING="client_uuid_placeholder"
 export ATB_UUID_UNDER_TESTING="uuid_placeholder"
 
+export ANTHROPIC_API_KEY="anthropic_key_placeholder"
+
 export CLAUDE_SLACK_WEBHOOK_URL="https://hooks.slack.com/services/YOUR/SLACK/WEBHOOK"
