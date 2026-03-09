@@ -169,8 +169,8 @@ Pairs well with iTerm2's "Copy to pasteboard on selection" for a fully keyboard-
 ## Related
 
 - [claude-config](https://github.com/pdelfino/claude-config) - Claude Code configuration with Emacs-style keybindings
-- [iTerm2-config](https://github.com/pdelfino/iTerm2-config) - iTerm2 profile with copy-on-selection
-- [my-karabiner-elements-config](https://github.com/pdelfino/my-karabiner-elements-config) - Keyboard remappings
+- [iterm2-config](https://github.com/pdelfino/iterm2-config) - iTerm2 profile with copy-on-selection
+- [karabiner-config](https://github.com/pdelfino/karabiner-config) - Keyboard remappings
 
 ## License
 
