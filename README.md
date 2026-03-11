@@ -168,9 +168,12 @@ Pairs well with iTerm2's "Copy to pasteboard on selection" for a fully keyboard-
 
 ## Related
 
-- [claude-config](https://github.com/pdelfino/claude-config) - Claude Code configuration with Emacs-style keybindings
+- [emacs-config](https://github.com/pdelfino/emacs-config) - Emacs setup with Ivy, Projectile, Paredit, and Claude Code
+- [karabiner-config](https://github.com/pdelfino/karabiner-config) - Emacs keybindings system-wide on macOS
+- [homerow-config](https://github.com/pdelfino/homerow-config) - Click things without a mouse
 - [iterm2-config](https://github.com/pdelfino/iterm2-config) - iTerm2 profile with copy-on-selection
-- [karabiner-config](https://github.com/pdelfino/karabiner-config) - Keyboard remappings
+- [claude-config](https://github.com/pdelfino/claude-config) - Claude Code configuration with Emacs-style keybindings
+- [macos-setup](https://github.com/pdelfino/macos-setup) - The bootstrap that ties it all together
 
 ## License
 
