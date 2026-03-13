@@ -1,32 +1,27 @@
-# Pedro's ZSH Configuration
+# zshrc
 
-A well-organized, feature-rich ZSH configuration for macOS with Emacs keybindings, modern plugins, and sensible defaults.
+![The Birth of Venus](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/700px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg)
+
+*"The Birth of Venus" (c. 1485) by Sandro Botticelli — [Wikipedia](https://en.wikipedia.org/wiki/The_Birth_of_Venus)*
+
+**A keyboard-first ZSH configuration for macOS -- Emacs keybindings, Zinit plugins, and system clipboard integration.**
+
+## About
+
+A well-organized ZSH configuration built around the philosophy that your shell should feel like Emacs. Every kill and yank operation syncs with the macOS system clipboard, Zinit handles plugin management with lazy loading, and sensible defaults make the terminal pleasant to work in from the first launch.
+
+## Key Highlights
+
+- **Emacs keybindings with clipboard sync** -- `Ctrl+K`, `Ctrl+W`, `Alt+D` all pipe through `pbcopy`; `Ctrl+Y` yanks from `pbpaste`
+- **Zinit plugin manager** -- auto-installs on first run with Fish-like syntax highlighting, autosuggestions, and history substring search
+- **Powerlevel10k prompt** -- fast, informative prompt with git status
+- **50,000-line shared history** -- with timestamps, deduplication, and cross-session sync
+- **Named directories** -- `~projects`, `~config`, `~downloads` for quick navigation
 
 ## Features
 
-### Core Configuration
-- **Emacs as default editor** - Both `$EDITOR` and `$VISUAL` set to emacs
-- **UTF-8 encoding** - Proper locale settings for international text
-- **XDG Base Directory** - Follows the XDG specification for config, data, and cache
-
-### History
-- 50,000 lines of history retained
-- Shared between all sessions
-- Timestamps recorded
-- Duplicate handling and space-prefixed command filtering
-
-### Directory Navigation
-- `AUTO_CD` - Type directory names to cd into them
-- `AUTO_PUSHD` - Automatic directory stack
-- Named directories: `~projects`, `~config`, `~downloads`
-
-### Completion System
-- Arrow-key menu selection
-- Case-insensitive matching
-- Colored completions using `LS_COLORS`
-- Grouped by category with styled descriptions
-
 ### Emacs Keybindings
+
 Full Emacs-style navigation and editing:
 
 | Key | Action |
@@ -44,48 +39,31 @@ Full Emacs-style navigation and editing:
 | `Ctrl+X h` | Select entire line |
 
 ### Plugins (via Zinit)
+
 Zinit auto-installs on first run. Included plugins:
 
-- **zsh-syntax-highlighting** - Fish-like syntax highlighting
-- **zsh-autosuggestions** - Fish-like autosuggestions (accept with `Shift+Tab`)
-- **zsh-history-substring-search** - Better history search with arrow keys
-- **zsh-completions** - Additional completion definitions
-- **zsh-z** - Fast directory jumping (`z` command)
-- **Powerlevel10k** - Feature-rich prompt with git status
+- **zsh-syntax-highlighting** -- Fish-like syntax highlighting
+- **zsh-autosuggestions** -- Fish-like autosuggestions (accept with `Shift+Tab`)
+- **zsh-history-substring-search** -- Better history search with arrow keys
+- **zsh-completions** -- Additional completion definitions
+- **zsh-z** -- Fast directory jumping (`z` command)
+- **Powerlevel10k** -- Feature-rich prompt with git status
 
 ### Aliases
 
-**Navigation:**
-```
-..    ...    ....    ~    -
-```
+**Navigation:** `..`, `...`, `....`, `~`, `-`
 
-**Files:**
-```
-ls    ll    la    l    lt    lz
-```
+**Files (using eza):** `ls`, `ll`, `la`, `l`, `lt`, `lz`
 
-**Safety nets:**
-```
-rm -i    cp -i    mv -i    mkdir -pv
-```
+**Safety nets:** `rm -i`, `cp -i`, `mv -i`, `mkdir -pv`
 
-**Git:**
-```
-g    gs    ga    gc    gp    gl    gd    gco    gb    glog
-```
+**Git:** `g`, `gs`, `ga`, `gc`, `gp`, `gl`, `gd`, `gco`, `gb`, `glog`
 
-**Emacs:**
-```
-e    ec    et
-```
+**Emacs:** `e`, `ec`, `et`
 
-**Utilities:**
-```
-c (clear)    h (history)    path    reload    zshrc
-```
+**Utilities:** `c` (clear), `h` (history), `path`, `reload`, `zshrc`
 
-### Functions
+### Utility Functions
 
 | Function | Description |
 |----------|-------------|
@@ -97,14 +75,9 @@ c (clear)    h (history)    path    reload    zshrc
 | `weather [city]` | Weather in terminal |
 
 ### Version Managers
-- **NVM** - Node.js version management (via Homebrew)
-- **pyenv** - Python version management
 
-### PATH Configuration
-- Homebrew on Apple Silicon (`/opt/homebrew/bin`)
-- Local binaries (`~/.local/bin`)
-- Emacs Plus binaries
-- Automatic duplicate removal
+- **NVM** -- Node.js version management (via Homebrew)
+- **pyenv** -- Python version management
 
 ## Installation
 
@@ -135,46 +108,26 @@ Zinit and plugins will auto-install on first load.
 
 Environment variables containing API keys and credentials are stored separately:
 
-- `.secure_env_vars.example` - Template with placeholder values (committed)
-- `~/.secure_env_vars` - Actual secrets (gitignored, lives in home directory)
+- `.secure_env_vars.example` -- Template with placeholder values (committed)
+- `~/.secure_env_vars` -- Actual secrets (gitignored, lives in home directory)
 
-This keeps sensitive data out of version control while providing a template for required variables.
-
-The `CLAUDE_SLACK_WEBHOOK_URL` variable is used by [claude-config](https://github.com/pdelfino/claude-config) hooks to send Slack notifications when Claude Code is waiting for input.
+This keeps sensitive data out of version control while providing a template for required variables. The `CLAUDE_SLACK_WEBHOOK_URL` variable is used by [claude-config](https://github.com/pdelfino/claude-config) hooks to send Slack notifications when Claude Code is waiting for input.
 
 ## Requirements
 
-- macOS (some features are macOS-specific)
+- macOS (some features are macOS-specific, e.g., `pbcopy`/`pbpaste` integration)
 - Git (for Zinit installation)
 - [Homebrew](https://brew.sh/) (recommended)
 
-## Customization
-
-Edit `~/.zshrc` or the symlinked file directly. After making changes:
-
-```bash
-reload  # or: source ~/.zshrc
-```
-
-### System Clipboard Integration
-
-All kill/copy operations (`Ctrl+K`, `Ctrl+U`, `Ctrl+W`, `Alt+D`, `Alt+W`) automatically sync to the macOS system clipboard via `pbcopy`. `Ctrl+Y` yanks from the system clipboard via `pbpaste`. This means:
-
-- Kill text in one terminal tab, yank it in another
-- Kill in the terminal, `Cmd+V` in any app
-- Copy in any app, `Ctrl+Y` in the terminal
-
-Pairs well with iTerm2's "Copy to pasteboard on selection" for a fully keyboard-driven workflow.
-
 ## Related
 
-- [emacs-config](https://github.com/pdelfino/emacs-config) - Emacs setup with Ivy, Projectile, Paredit, and Claude Code
-- [karabiner-config](https://github.com/pdelfino/karabiner-config) - Emacs keybindings system-wide on macOS
-- [homerow-config](https://github.com/pdelfino/homerow-config) - Click things without a mouse
-- [iterm2-config](https://github.com/pdelfino/iterm2-config) - iTerm2 profile with copy-on-selection
-- [claude-config](https://github.com/pdelfino/claude-config) - Claude Code configuration with Emacs-style keybindings
-- [macos-setup](https://github.com/pdelfino/macos-setup) - The bootstrap that ties it all together
+- [emacs-config](https://github.com/pdelfino/emacs-config) -- Emacs setup with Ivy, Projectile, Paredit, and Claude Code
+- [karabiner-config](https://github.com/pdelfino/karabiner-config) -- Emacs keybindings system-wide on macOS
+- [homerow-config](https://github.com/pdelfino/homerow-config) -- Click things without a mouse
+- [iterm2-config](https://github.com/pdelfino/iterm2-config) -- iTerm2 profile with copy-on-selection
+- [claude-config](https://github.com/pdelfino/claude-config) -- Claude Code configuration with Emacs-style keybindings
+- [macos-setup](https://github.com/pdelfino/macos-setup) -- The bootstrap that ties it all together
 
 ## License
 
-Personal configuration - use freely.
+Personal configuration -- use freely.
