@@ -1,6 +1,6 @@
 # zshrc
 
-![The Birth of Venus](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/700px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg)
+![The Birth of Venus](https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg/960px-Sandro_Botticelli_-_La_nascita_di_Venere_-_Google_Art_Project_-_edited.jpg)
 
 *"The Birth of Venus" (c. 1485) by Sandro Botticelli — [Wikipedia](https://en.wikipedia.org/wiki/The_Birth_of_Venus)*
 
