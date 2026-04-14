@@ -345,8 +345,11 @@ fi
 # Homebrew (Apple Silicon)
 [[ -d "/opt/homebrew/bin" ]] && export PATH="/opt/homebrew/bin:$PATH"
 
-# Java 11 (for Clojure/shadow-cljs)
-[[ -d "/opt/homebrew/opt/openjdk@11/bin" ]] && export PATH="/opt/homebrew/opt/openjdk@11/bin:$PATH"
+# Java 21 (default)
+if [[ -d "/opt/homebrew/opt/openjdk@21" ]]; then
+  export JAVA_HOME="/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+  export PATH="$JAVA_HOME/bin:$PATH"
+fi
 
 # Local binaries
 export PATH="$HOME/.local/bin:$PATH"
