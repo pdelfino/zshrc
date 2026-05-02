@@ -359,6 +359,14 @@ export PATH="$HOME/.local/bin:$PATH"
 
 
 # ┌──────────────────────────────────────────────────────────────────────────────┐
+# │                          Productivity Wrappers                               │
+# └──────────────────────────────────────────────────────────────────────────────┘
+
+# claude-queue run tracker (times every run, logs to TSV + org)
+[[ -f ~/projects/zshrc/claude-queue-wrapper.zsh ]] && source ~/projects/zshrc/claude-queue-wrapper.zsh
+
+
+# ┌──────────────────────────────────────────────────────────────────────────────┐
 # │                            Final Touches                                     │
 # └──────────────────────────────────────────────────────────────────────────────┘
 
