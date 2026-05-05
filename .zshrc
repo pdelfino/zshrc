@@ -387,3 +387,7 @@ fi
 # ╔══════════════════════════════════════════════════════════════════════════════╗
 # ║                           End of Configuration                               ║
 # ╚══════════════════════════════════════════════════════════════════════════════╝
+
+# slap-temp — execute whatever Claude staged at ~/.claude/slap-temp/pending.sh.
+# (~/.local/bin is already on PATH, so the bare wrapper works too; this alias is here for explicitness.)
+alias slap-temp='command slap-temp'
