@@ -254,6 +254,7 @@ alias ports="lsof -i -P -n | grep LISTEN"  # Show open ports
 alias py="python3"
 alias pip="pip3"
 alias serve="python3 -m http.server"  # Quick HTTP server
+alias claude="caffeinate -i claude"  # Keep Mac awake while Claude Code runs
 
 # ─── Modern CLI Tools ────────────────────────────────────────────────────────
 command -v bat &>/dev/null && alias cat="bat --style=auto"
