@@ -3,3 +3,7 @@
 
 # macOS
 .DS_Store
+
+# Claude Code local session state
+.claude/session-end-state.md
+.claude/settings.local.json
