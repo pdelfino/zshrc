@@ -392,3 +392,8 @@ fi
 # slap-temp — execute whatever Claude staged at ~/.claude/slap-temp/pending.sh.
 # (~/.local/bin is already on PATH, so the bare wrapper works too; this alias is here for explicitness.)
 alias slap-temp='command slap-temp'
+
+# Wrangler run observer: logs every `npx wrangler ...` to
+# ~/.claude/wrangler-runs/ so Claude Code auto-verifies each run
+# (UserPromptSubmit hook). Wrapper defines an npx() function.
+source "$HOME/.claude/hooks/wrangler-observe.zsh"
