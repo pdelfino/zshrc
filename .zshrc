@@ -397,3 +397,6 @@ alias slap-temp='command slap-temp'
 # ~/.claude/wrangler-runs/ so Claude Code auto-verifies each run
 # (UserPromptSubmit hook). Wrapper defines an npx() function.
 source "$HOME/.claude/hooks/wrangler-observe.zsh"
+
+# MPD: local mpc talks over the unix socket (full rights, no password)
+export MPD_HOST="$HOME/.config/mpd/socket"
